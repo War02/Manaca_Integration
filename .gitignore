@@ -1,0 +1,11 @@
+# Ignorar arquivos do PyCharm
+.idea/
+*.iml
+
+# Ignorar ambientes virtuais (caso esteja usando)
+venv/
+.env
+
+# Ignorar arquivos de compilação
+__pycache__/
+*.pyc
