@@ -1,6 +1,6 @@
 from extraction.api_client import APIClient
 import json
-
+from database.insert import insert_email  # Importando a função de inserção
 
 def extrair_emails():
     """Extrai todos os emails da API com paginação até o último registro."""
@@ -39,11 +39,15 @@ def extrair_emails():
 
     if todos_os_emails:
         print(f"✅ {len(todos_os_emails)} emails extraídos com sucesso!")
+
+        # Inserir os emails extraídos no banco de dados
+        for email_data in todos_os_emails:
+            insert_email(email_data)  # Chama a função de inserção para cada email extraído
+
     else:
         print("⚠ Nenhum email encontrado.")
 
     return todos_os_emails
-
 
 # Teste rápido:
 if __name__ == "__main__":
